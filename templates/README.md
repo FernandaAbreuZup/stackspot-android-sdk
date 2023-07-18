@@ -1,3 +1,5 @@
+# {{project_name}}
+
 ## StackSpot Plugin
 
 ## Jinja

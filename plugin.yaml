@@ -18,22 +18,26 @@ spec:
   technologies: # Ref: https://docs.stackspot.com/content-creator/studio/yaml-files/plugin-yaml/#technologies
     - Api
   inputs:
-    - label: Type name of your resource
-      name: resource
-      type: text
-      required: true
-      default: Client
-      pattern: '([A-Z][a-z]+)+'
-      help: 'Inform your resource name (e.g.: Client)'
-    - label: Choose http method of new endpoint
-      name: method
-      type: text
-      items:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - PATCH
-      default: GET
-      required: true
-      help: 'Inform the method of the endpoint (e.g.: post or delete)'
+  - label: "Digite o nome do projeto"
+    name: "project_name"
+    type: "text"
+    default: "Project Name"
+    required: true
+    global: true
+  - label: "Digite a descrição do projeto"
+    name: "project_description"
+    type: "text"
+    required: true
+    global: true
+  - label: "Digite o Group ID: ( o seu package name sem o nome do modulo no final)"
+    name: "init_package_name"
+    type: "text"
+    required: true
+    global: true
+  - label: "Digite o Minimum SDK:"
+    name: "minimum_sdk"
+    type: "text"
+    default: "21"
+    global: true
+  global-computed-inputs:
+    module_name: "{{project_name|lower|replace('-', '.')|replace('_', '.')}}"
